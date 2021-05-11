@@ -1,0 +1,62 @@
+article {
+  box-sizing: border-box;
+  width: 80%;
+  background-color: white;
+  padding: 1rem;
+  h1{
+    text-align: center;
+    padding-bottom: 1.5rem;
+  }
+  h2,h3,p,ul{
+    padding-top: 1rem;
+  }
+  table {
+    margin: 2rem auto 0 auto;
+    width: 60%;
+    td {
+      border: solid 0.1em black;
+      text-align: center;
+      vertical-align: middle;
+      padding: 0.5em;
+    }
+  }
+  .right_img {      /*картина в статье*/
+    float: right;
+    margin: 1em 0 1em 1em;
+    max-width: 400px;
+    max-height: 200px;
+    padding: 0.2rem;
+    background: black;
+  }
+  .right_align_string {
+    display: block;
+    text-align: right;
+  }
+}
+
+.start_page_verse {     /*стих на страртовой странице*/
+  text-align: center;
+  margin-top: 2em;
+  img {
+    max-width: 100%;
+  }
+}
+
+.loading_article {      /*Suspense для react lazy*/
+  background-color: white;
+}
+
+@media (max-width: 850px) {
+  article {
+    .right_img {      /*картина в статье*/
+      max-width: 300px;
+      max-height: 150px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  article {
+    width: 100%;
+  }
+}

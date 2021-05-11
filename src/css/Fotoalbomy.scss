@@ -1,0 +1,303 @@
+.waiting_animation_preload {    /*круговая анимация до зарузки фото*/
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  background: url("@/img/waiting.gif");
+}
+
+.album_page {     /*абложи альбомов*/
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  &:nth-child(even){
+    display: flex;
+    justify-content: flex-end;
+    .album_wrapper {
+      flex-flow: row-reverse;
+    }
+  }
+
+  .album_wrapper {
+    display: flex;
+    flex-flow: row;
+    background-color: rgba(222, 222, 27, 0.2);
+    border: solid 0.2em rgba(0,0,255,0.3);
+    padding: 1rem;
+    width: 60%;
+    &:hover {
+      border: solid 0.2em blue;
+      cursor: pointer;
+      ul {
+        li {
+          img {
+            animation-name: fotocards_drop_position;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+          }
+          @keyframes fotocards_drop_position {
+            100% {
+              transform: translate(0, 0) rotate(0) ;
+            }
+          }
+        }
+      }
+    }
+
+    .cover {
+      width: 200px;
+      height: 200px;
+      border: solid 0.2rem white;
+    }
+
+    .title {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      padding: 1rem;
+      h2 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-bottom: blue solid 1px;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        li {
+          position: absolute;
+          img {
+            box-sizing: border-box;
+            border: solid 0.2rem white;
+            max-width: 100px;
+            max-height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.opened_album {     /*превью фотографий открытого альбома*/
+  header {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      padding: 0;
+    }
+  }
+  .album_preview {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit:cover;
+      margin: 1rem;
+      padding: 0.3rem;
+      background: rgba(0, 0, 255, 0.3) url("@/img/waiting.gif") center/200% no-repeat;
+
+      &:hover {
+        background-color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+  .close_album_button {     /*кнопка "назад к альбомам"*/
+    background: white;
+    font: 1rem "Lobster", cursive;
+    color: blue;
+    border-left: 0.2rem solid rgba(0, 0, 255, 0.3);
+    border-right: 0.2rem solid rgba(0, 0, 255, 0.3);
+    border-bottom: none;
+    border-top: none;
+    &:hover {
+      border-left: 0.2rem solid blue;
+      border-right: 0.2rem solid blue;
+    }
+    &:active {
+      outline: none;
+    }
+  }
+  .photo_slider {     /*слайдер*/
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    .photo_container {
+      position: absolute;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      min-width: 400px;
+      min-height: 400px;
+      background: url("@/img/waiting.gif") center/100% no-repeat;
+      .photo {
+        touch-action: none;
+        opacity: 0;
+        border: solid 10px white;
+      }
+    }
+    .previous_button {
+      transform: scale(-1,1);
+      position: absolute;
+      background: url("@/img/arrow.png") center/100% no-repeat;
+      border: none;
+      left: 15px;
+      width: 45px;
+      height: 45px;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        transform: scale(-1,1) scale(1.2);
+        cursor: pointer;
+      }
+    }
+    .next_button {
+      position: absolute;
+      background: url("@/img/arrow.png") center/100% no-repeat;
+      border: none;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+    .close_button {
+      position: absolute;
+      background: url("@/img/cross.png") center/100% no-repeat;
+      border: none;
+      right: -19px;
+      top: -19px;
+      width: 38px;
+      height: 38px;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+    .hidden {
+      visibility: hidden;
+    }
+  }
+}
+
+
+@media (max-width: 1660px) {
+  .album_page {
+    .album_wrapper {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .album_page {
+    .album_wrapper {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 1260px) {
+  .album_page {
+    .album_wrapper {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .album_page {
+    .album_wrapper {
+      width: 100%;
+    }
+  }
+  .opened_album {
+    .photo_slider {
+      .photo_container {
+        min-width: 300px;
+        min-height: 300px;
+        .photo {
+          border: solid 10px white;
+        }
+      }
+      .previous_button {
+        left: 17px;
+        width: 38px;
+        height: 38px;
+      }
+      .next_button {
+        right: 17px;
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+}
+
+@media (max-width: 610px) {
+  .album_page {
+    justify-content: center;
+    &:nth-child(even) {
+      justify-content: center;
+    }
+    .album_wrapper {
+      width: auto;
+      .title {
+        padding: 0;
+        h2 {
+          display: none;
+        }
+        ul {
+          display: none;
+        }
+      }
+    }
+  }
+  .opened_album {
+    .photo_slider {
+      .photo_container {
+        min-width: 200px;
+        min-height: 200px;
+        .photo {
+          border: solid 10px white;
+        }
+      }
+      .previous_button {
+        left: 15px;
+        width: 33px;
+        height: 33px;
+      }
+
+      .next_button {
+        right: 15px;
+        width: 33px;
+        height: 33px
+      }
+      .close_button {
+        right: 15px;
+        top: 15px;
+        width: 33px;
+        height: 33px;
+      }
+    }
+  }
+}

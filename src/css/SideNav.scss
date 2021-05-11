@@ -1,0 +1,115 @@
+.main_aside {
+  border-right: solid 0.1em black;
+  box-sizing: border-box;
+  width: 20%;
+  padding: 1rem;
+  background-color: white;
+
+  nav {
+    position: sticky;
+    top: 1em;
+    font: 1rem 'Lobster', cursive;
+
+    ul {
+      list-style-type: none;
+      a {
+        display: block;
+        color: blue;
+        margin-top: 0.4em;
+        padding-left: 0.3em;
+        border-left: solid 0.2em rgba(128,128,128,0.3);
+        &:hover {
+          border-left: solid 0.2em rgba(0,0,255,0.3);
+          cursor: pointer;
+          animation-name: aside_nav_Animation;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+        }
+        @keyframes aside_nav_Animation {
+          0% {
+            padding-left: 0.3em;
+          }
+          100% {
+            padding-left: 0.7em;
+          }
+        }
+      }
+
+      .selectedNavLink {
+        border-left: solid 0.2em blue;
+        padding-left: 0.7em;
+      }
+    }
+  }
+
+  .scroll_up_button {
+    visibility: hidden;
+    text-align: center;
+    position: sticky;
+    top: 90%;
+    &:hover {
+      cursor: pointer;
+    }
+    img {
+      max-height: 55px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main_aside {
+    border-right: none;
+    border-bottom: solid 0.1em black;
+    width: 100%;
+    margin-bottom: 1%;
+    padding: 1rem;
+
+    .scroll_up_button {
+      position: fixed;
+      top: auto;
+      right: 10px;
+      bottom: 10px;
+      img {
+        max-width: 45px;
+      }
+    }
+
+    nav {
+      position: relative;
+      margin-bottom: 1rem;
+      h4 {
+        text-align: center;
+      }
+      ul {
+        list-style-type: none;
+        text-align: center;
+        li {
+          display: inline;
+          a {
+            display: inline-block;
+            color: blue;
+            margin: 0.5em;
+            padding-left: 0;
+            border-left: none;
+            border-bottom: solid 0.2em rgba(128,128,128,0.3);
+            &:hover {
+              border-left: none;
+              border-bottom: solid 0.2em rgba(0, 0, 255, 0.3);
+              cursor: pointer;
+              animation-name: none;
+            }
+          }
+        }
+
+        .selectedNavLink {
+          border-left: none;
+          padding-left: 0;
+          border-bottom: solid 0.2em blue;
+        }
+      }
+    }
+  }
+}
+
+
+

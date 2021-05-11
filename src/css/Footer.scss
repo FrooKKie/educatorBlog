@@ -1,0 +1,23 @@
+footer {
+  background-color: white;
+  border-top: solid 0.1em black;
+  padding: 1rem;
+}
+
+.footer_links {
+  li {
+    padding: 0.5em 0 0 0;
+    display: block;
+    &:first-child {
+      &::before {
+        padding-right: 1em;
+        content: "";
+        display: inline-block;
+        background: url("@/img/icon_gmail.png") 0% 0% /auto 100% no-repeat;
+        width: 1em;
+        height: 1em;
+      }
+    }
+  }
+
+}

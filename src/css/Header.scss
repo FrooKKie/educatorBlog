@@ -1,0 +1,37 @@
+.main_header {
+  background: url("/img/header_right_bg.png") right top /auto 100% no-repeat white;
+  box-shadow: 0 0 1em black;
+  margin-bottom: 2rem;
+  h1 {
+    margin: 0;
+    padding: 1rem;
+    font-family: 'Lobster', cursive;
+  }
+}
+
+@media (max-width: 1260px) {
+  .main_header {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main_header {
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 610px) {
+  .main_header {
+    background: white;
+
+    h1 {
+      text-align: center;
+      font-size: 1.75rem;
+    }
+  }
+}
