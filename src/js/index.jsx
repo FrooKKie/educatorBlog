@@ -33,6 +33,7 @@ ReactDOM.render(
                 </Switch>
             </Suspense>
         </App>
-    </BrowserRouter>,
-    document.getElementById('react_container')
+    </BrowserRouter>
+
+    , document.getElementById('react_container')
 )
